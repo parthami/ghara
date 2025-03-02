@@ -1,50 +1,45 @@
-# React + TypeScript + Vite
+# Ghara
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Ghara or घर means home in Marathi.
 
-Currently, two official plugins are available:
+## Background
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Ghara is my smart display project which uses a React webapge and Puppteeter to display information on an e-ink display.
 
-## Expanding the ESLint configuration
+![](/arch.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+(IRL photo coming soon)
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Roadmap to v1
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- [x] Solder the 40 pin header to the Raspberry Pi Zero
+- [x] Build a simple dashboard
+- [x] Display an image on the e-ink display
+- [x] Add a clock Panel
+- [x] Create an API to generate the image
+- [x] Download the image on the Pi using the API endpoint
+- [x] Add a weather Panel
+- [ ] Replace example WaveShare python script with my own
+- [ ] Pull the image as part of the python script
+- [ ] Dockerize the webapp and API
+- [ ] Deploy the containers
+- [ ] Pull a new image every x minutes
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Future features
+
+- [ ] Caching layer
+- [ ] Calender panel
+- [ ] Weather panel v2
+- [ ] TFL tube and bus panel
+- [ ] Spotify panel
+- [ ] Configurable syncing time
+
+
+## Inspiration
+
+[Never Missing the Train Again, Thanks to Rust - Lily Mara](https://lilymara.xyz/posts/2024/01/transit-kindle)
+[Your next smart home device is a $30 used Kindle - Matt Healy](https://matthealy.com/kindle)
+
+
