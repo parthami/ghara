@@ -1,22 +1,22 @@
-import {Metadata} from "next";
+import { Metadata } from "next";
 
-import './globals.css'
+import "./globals.css";
 
 export const metadata: Metadata = {
-    title: 'Ghara',
-    description: 'Ghara',
-}
+  title: "Ghara",
+  description: "Ghara",
+};
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return (
-        <html lang="en">
-        <body>
+  return (
+    <html lang="en">
+      <body>
         <div id="root">{children}</div>
-        </body>
-        </html>
-    )
+      </body>
+    </html>
+  );
 }

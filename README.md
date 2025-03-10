@@ -8,9 +8,7 @@ Ghara is my smart display project which uses a React webapge and Puppteeter to d
 
 ![](/arch.png)
 
-
 (IRL photo coming soon)
-
 
 ## Roadmap to v1
 
@@ -36,10 +34,7 @@ Ghara is my smart display project which uses a React webapge and Puppteeter to d
 - [ ] Spotify panel
 - [ ] Configurable syncing time
 
-
 ## Inspiration
 
 - [Never Missing the Train Again, Thanks to Rust - Lily Mara](https://lilymara.xyz/posts/2024/01/transit-kindle)
 - [Your next smart home device is a $30 used Kindle - Matt Healy](https://matthealy.com/kindle)
-
-
