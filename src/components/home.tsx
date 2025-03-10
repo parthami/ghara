@@ -1,22 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-import { getWeatherPanelData, WeatherHourlyData } from "./panels/weather.ts";
+import { WeatherHourlyData } from "./panels/weather.ts";
 
-const Home = () => {
-  const currentTime = new Date();
-  const time = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
-  const [weatherPanelData, setWeatherPanelData] = useState(
-    [] as WeatherHourlyData[],
-  );
+type HomeProps = {
+  time: string;
+  weatherPanelData: WeatherHourlyData[];
+};
 
-  useEffect(() => {
-    getWeatherPanelData().then((weatherPanelData) =>
-      setWeatherPanelData(weatherPanelData),
-    );
-  }, []);
-
+const Home = ({ time, weatherPanelData }: HomeProps) => {
   return (
     <div>
       <div className="h-[480px] w-[800px] grid grid-cols-2 grid-rows-2 gap-4">

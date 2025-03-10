@@ -1,11 +1,10 @@
-"use client";
+import { getWeatherPanelData } from "../components/panels/weather.ts";
+import Home from "../components/home.tsx";
 
-import dynamic from "next/dynamic";
+export default async function Page() {
+  const currentTime = new Date();
+  const time = `${currentTime.getHours()}:${currentTime.getMinutes() === 0 ? "00" : currentTime.getMinutes()}`;
+  const weatherPanelData = await getWeatherPanelData();
 
-const HomeClient = dynamic(() => import("../components/home.tsx"), {
-  ssr: false,
-});
-
-export default function Page() {
-  return <HomeClient />;
+  return <Home time={time} weatherPanelData={weatherPanelData} />;
 }
