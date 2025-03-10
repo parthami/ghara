@@ -12,10 +12,10 @@ const Home = ({ time, weatherPanelData }: HomeProps) => {
   return (
     <div>
       <div className="h-[480px] w-[800px] grid grid-cols-2 grid-rows-2 gap-4">
-        <div className="bg-gray-200 flex">
+        <div className="border-2 border-dashed border-gray-800 flex">
           <span className="m-auto text-9xl">{time}</span>
         </div>
-        <div className="bg-gray-300 flex flex-col">
+        <div className="border-2 border-dashed border-gray-800 flex flex-col">
           <LineChart
             width={392}
             height={232}
@@ -39,10 +39,10 @@ const Home = ({ time, weatherPanelData }: HomeProps) => {
             />
           </LineChart>
         </div>
-        <div className="bg-gray-300 flex">
+        <div className="border-2 border-dashed border-gray-800 flex">
           <span className="m-auto">Panel 3</span>
         </div>
-        <div className="bg-gray-200 flex">
+        <div className="border-2 border-dashed border-gray-800 flex">
           <span className="m-auto">Panel 4</span>
         </div>
       </div>

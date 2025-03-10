@@ -11,7 +11,7 @@ app.get("/", async (req, res) => {
     console.log("launching browser");
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
-    const website_url = "http://localhost:5173/";
+    const website_url = "http://localhost:3000/";
 
     console.log("taking screenshot");
     await page.goto(website_url, { waitUntil: "networkidle0" });
