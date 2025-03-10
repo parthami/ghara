@@ -1,8 +1,10 @@
-import {getWeatherPanelData, WeatherHourlyData} from "./panels/weather.ts";
+'use client'
+
 import {useEffect, useState} from "react";
 import {CartesianGrid, Line, LineChart, XAxis, YAxis} from "recharts";
+import {getWeatherPanelData, WeatherHourlyData} from "./panels/weather.ts";
 
-const App = () => {
+const Home = () => {
     const currentTime = new Date();
     const time = `${currentTime.getHours()}:${currentTime.getMinutes()}`;
     const [weatherPanelData, setWeatherPanelData] = useState([] as WeatherHourlyData[]);
@@ -49,4 +51,4 @@ const App = () => {
     )
 };
 
-export default App
+export default Home
