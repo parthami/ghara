@@ -1,7 +1,7 @@
 "use client";
 
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-import { WeatherHourlyData } from "./panels/weather.ts";
+import WeatherPanel from "./panels/WeatherPanel.tsx";
+import { WeatherHourlyData } from "../fetchers/weather.ts";
 
 type HomeProps = {
   time: string;
@@ -15,30 +15,7 @@ const Home = ({ time, weatherPanelData }: HomeProps) => {
         <div className="border-2 border-dashed border-gray-800 flex">
           <span className="m-auto text-9xl">{time}</span>
         </div>
-        <div className="border-2 border-dashed border-gray-800 flex flex-col">
-          <LineChart
-            width={392}
-            height={232}
-            data={weatherPanelData}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-          >
-            <CartesianGrid strokeDasharray="4 1 2" />
-            <XAxis dataKey="hour" />
-            <YAxis width={10} />
-
-            <Line
-              type="monotone"
-              dataKey="temperature"
-              stroke="black"
-              activeDot={{ r: 8 }}
-            />
-          </LineChart>
-        </div>
+        <WeatherPanel weatherPanelData={weatherPanelData} />
         <div className="border-2 border-dashed border-gray-800 flex">
           <span className="m-auto">Panel 3</span>
         </div>
