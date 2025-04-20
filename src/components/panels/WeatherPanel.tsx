@@ -1,3 +1,5 @@
+"use client";
+
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
 import { WeatherHourlyData } from "../../fetchers/weather.ts";
 
@@ -27,6 +29,7 @@ const WeatherPanel = ({ weatherPanelData }: WeatherPanelProps) => (
         dataKey="temperature"
         stroke="black"
         activeDot={{ r: 8 }}
+        isAnimationActive={false}
       />
     </LineChart>
   </div>
