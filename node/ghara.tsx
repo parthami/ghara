@@ -8,7 +8,9 @@ async function generateImage() {
 
   
   const img = await satori(
-    <div style={{ color: 'black' }}>hello, world</div>,
+    <div style={{backgroundColor: 'white', display: 'flex', height: '100%', width: '100%'}}>
+      <div style={{ color: 'black' }}>hello, world</div>
+    </div>,
     {
       width: 800,
       height: 480,
@@ -25,6 +27,8 @@ async function generateImage() {
   )
   
   await Bun.write("output.svg", img)
+
+  return;
 
   const python = Bun.spawn(["python3", "flash.py"], {
   cwd: "../python",
