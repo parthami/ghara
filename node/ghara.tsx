@@ -4,9 +4,9 @@ const font = Bun.file('Roboto-Black.ttf');
 const fontData = await font.arrayBuffer();
 
 
-async function generateImage() {
+async function generateImage() {  
+  console.log("Generating SVG using Satori");
 
-  
   const img = await satori(
     <div style={{backgroundColor: 'white', display: 'flex', height: '100%', width: '100%'}}>
       <div style={{ color: 'black' }}>hello, world</div>
@@ -26,9 +26,11 @@ async function generateImage() {
     
   )
   
-  await Bun.write("output.svg", img)
+  // console.log("Writing SVG to output.svg");
+  // await Bun.write("output.svg", img)
 
-  return;
+
+  console.log("Spawning Python process");
 
   const python = Bun.spawn(["python3", "flash.py"], {
   cwd: "../python",
