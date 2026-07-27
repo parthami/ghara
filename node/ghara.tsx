@@ -1,6 +1,6 @@
 import satori from 'satori';
 
-const font = Bun.file('node/Roboto-Black.ttf');
+const font = Bun.file('Roboto-Black.ttf');
 const fontData = await font.arrayBuffer();
 
 
@@ -26,19 +26,17 @@ async function generateImage() {
   
   await Bun.write("output.svg", img)
 
-  const python = Bun.spawn(["python3", "display_driver.py"], {
+  const python = Bun.spawn(["python3", "flash.py"], {
+  cwd: "../python",
   stdin: "pipe",
   stderr: "pipe",
   stdout: "pipe",
 });
 
-// 1. Write string/Uint8Array directly to python.stdin (FileSink)
 python.stdin.write(img);
 
-// 2. Flush and close stdin stream (signals EOF to Python)
 python.stdin.end();
 
-// 3. Read stderr output
 if (python.stderr) {
   const stderrText = await new Response(python.stderr).text();
   if (stderrText.trim()) {
@@ -46,7 +44,6 @@ if (python.stderr) {
   }
 }
 
-// 4. Await process termination
 const code = await python.exited;
 console.log(`[Pipeline] Driver exited with code ${code}`);
 }
