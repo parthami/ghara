@@ -1,0 +1,27 @@
+[Unit]
+Description=Ghara TSX and Python Process
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=pi
+WorkingDirectory=/home/parth/ghara
+
+# 1. Provide full PATH including Bun and Python (and venv if using one)
+Environment="PATH=/home/parth/ghara/venv/bin:/home/parth/.bun/bin:/usr/local/bin:/usr/bin:/bin"
+
+# 2. Prevent Python from buffering stdout/stderr so logs appear instantly in systemd logs
+Environment="PYTHONUNBUFFERED=1"
+
+ExecStart=/home/parth/.bun/bin/bun run /home/parth/ghara/ghara.tsx
+
+# 3. Clean kill signal if Bun or systemd times out
+KillMode=control-group
+TimeoutStopSec=30s
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

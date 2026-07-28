@@ -1,0 +1,11 @@
+[Unit]
+Description=Schedule for Ghara script
+
+[Timer]
+# Runs at 9:00 AM every day
+OnCalendar=hourly
+# Run immediately if a scheduled event was missed (e.g. Pi was powered off)
+Persistent=true
+
+[Install]
+WantedBy=timers.target
