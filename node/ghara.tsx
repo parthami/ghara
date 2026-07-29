@@ -1,4 +1,5 @@
 import satori from 'satori';
+import Dashboard from './dashboard';
 
 const font = Bun.file('Roboto-Black.ttf');
 const fontData = await font.arrayBuffer();
@@ -8,9 +9,7 @@ async function generateImage() {
   console.log("Generating SVG using Satori");
 
   const img = await satori(
-    <div style={{backgroundColor: 'white', display: 'flex', height: '100%', width: '100%'}}>
-      <div style={{ color: 'black' }}>hello, world</div>
-    </div>,
+    <Dashboard />,
     {
       width: 800,
       height: 480,
