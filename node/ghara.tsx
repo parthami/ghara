@@ -25,8 +25,9 @@ async function generateImage() {
     
   )
   
-  // console.log("Writing SVG to output.svg");
-  // await Bun.write("output.svg", img)
+  console.log("Writing SVG to output.svg");
+  await Bun.write("output.svg", img)
+  return;
 
 
   console.log("Spawning Python process");
