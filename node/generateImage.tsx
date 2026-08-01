@@ -35,8 +35,10 @@ export async function generateImage() {
 
   console.log("Spawning Python process");
 
-  const python = Bun.spawn(["python3", "flash.py"], {
-  cwd: "../python",
+const pythonDir = join(import.meta.dir, "../python");
+
+const python = Bun.spawn(["/usr/bin/python3", join(pythonDir, "flash.py")], {
+  cwd: pythonDir,
   stdin: "pipe",
   stderr: "pipe",
   stdout: "pipe",
