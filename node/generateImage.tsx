@@ -1,9 +1,11 @@
 import satori from 'satori';
 import Dashboard from './dashboard';
+import { join } from 'node:path';
 
 export async function generateImage() { 
-    const font = Bun.file('Roboto-Black.ttf');
-const fontData = await font.arrayBuffer();
+ const fontPath = join(import.meta.dir, 'Roboto-Black.ttf'); 
+  const font = Bun.file(fontPath);
+  const fontData = await font.arrayBuffer();
 
   console.log("Generating SVG using Satori");
 
