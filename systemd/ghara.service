@@ -4,24 +4,25 @@ After=network-online.target
 Wants=network-online.target
 
 [Service]
-Type=oneshot
+Type=simple
 User=pi
 WorkingDirectory=/home/parth/ghara
 
-# 1. Provide full PATH including Bun and Python (and venv if using one)
-Environment="PATH=/home/parth/ghara/venv/bin:/home/parth/.bun/bin:/usr/local/bin:/usr/bin:/bin"
+# Ensure Bun and Node binaries are in PATH
+Environment=PATH=/home/parth/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+Environment=NODE_ENV=production
 
-# 2. Prevent Python from buffering stdout/stderr so logs appear instantly in systemd logs
-Environment="PYTHONUNBUFFERED=1"
+# Execute Bun directly
+ExecStart=/home/parth/.bun/bin/bun run node/ghara.ts
 
-ExecStart=/home/parth/.bun/bin/bun run /home/parth/ghara/ghara.tsx
+# Production resilience settings for Pi
+Restart=always
+RestartSec=10s
 
-# 3. Clean kill signal if Bun or systemd times out
-KillMode=control-group
-TimeoutStopSec=30s
-
+# Logging controls (prevents filling up SD card with massive log files)
 StandardOutput=journal
 StandardError=journal
+SyslogIdentifier=my-app
 
 [Install]
 WantedBy=multi-user.target
