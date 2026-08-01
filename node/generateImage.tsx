@@ -23,10 +23,12 @@ const fontData = await font.arrayBuffer();
     }
     
   )
-  
-//   console.log("Writing SVG to output.svg");
-//   await Bun.write("output.svg", img)
-//   return;
+
+  if(process.env.ENVIROMENT === "DEV") {
+        console.log("Writing SVG to output.svg");
+        await Bun.write("output.svg", img)
+        return;
+    }
 
 
   console.log("Spawning Python process");
