@@ -37,7 +37,7 @@ export async function generateImage() {
 
 const pythonDir = join(import.meta.dir, "../python");
 
-const venvPython = "/home/parth/ghara/.venv/bin/python3";
+const venvPython = "/home/parth/ghara/python/.venv/bin/python3";
 
 const python = Bun.spawn([venvPython, join(pythonDir, "flash.py")], {
   cwd: pythonDir,
