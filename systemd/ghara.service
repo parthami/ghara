@@ -5,7 +5,8 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=pi
+User=parth
+Group=parth
 WorkingDirectory=/home/parth/ghara
 
 # Ensure Bun and Node binaries are in PATH
