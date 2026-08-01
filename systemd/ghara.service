@@ -14,7 +14,7 @@ Environment=PATH=/home/parth/.bun/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/
 Environment=NODE_ENV=production
 
 # Execute Bun directly
-ExecStart=/home/parth/.bun/bin/bun run node/ghara.ts
+ExecStart=/home/parth/.bun/bin/bun run /home/parth/ghara/node/ghara.ts
 
 # Production resilience settings for Pi
 Restart=always
