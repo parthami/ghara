@@ -1,11 +1,10 @@
 import satori from 'satori';
 import Dashboard from './dashboard';
 
-const font = Bun.file('Roboto-Black.ttf');
+export async function generateImage() { 
+    const font = Bun.file('Roboto-Black.ttf');
 const fontData = await font.arrayBuffer();
 
-
-async function generateImage() {  
   console.log("Generating SVG using Satori");
 
   const img = await satori(
@@ -25,9 +24,9 @@ async function generateImage() {
     
   )
   
-  // console.log("Writing SVG to output.svg");
-  // await Bun.write("output.svg", img)
-  // return;
+//   console.log("Writing SVG to output.svg");
+//   await Bun.write("output.svg", img)
+//   return;
 
 
   console.log("Spawning Python process");
@@ -53,5 +52,3 @@ if (python.stderr) {
 const code = await python.exited;
 console.log(`[Pipeline] Driver exited with code ${code}`);
 }
-
-generateImage();
