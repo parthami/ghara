@@ -3,3 +3,4 @@ Pillow>=12.0.0
 CairoSVG>=2.9.0
 rpi-lgpio
 spidev
+gpiozero
