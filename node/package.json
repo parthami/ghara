@@ -9,6 +9,7 @@
     "typescript": "^5"
   },
   "dependencies": {
+    "openmeteo": "^1.2.3",
     "react": "^19.2.8",
     "satori": "^0.29.0"
   }
