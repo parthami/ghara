@@ -1,16 +1,21 @@
 import satori from 'satori';
 import Dashboard from './dashboard';
 import { join } from 'node:path';
+import { getWeatherPanelData } from './weather';
 
-export async function generateImage() { 
+export async function generateImage() {
+  console.log("Loading font"); 
  const fontPath = join(import.meta.dir, 'Roboto-Black.ttf'); 
   const font = Bun.file(fontPath);
   const fontData = await font.arrayBuffer();
 
+  console.log("Fetching weather data");
+  const weatherData = await getWeatherPanelData();
+
   console.log("Generating SVG using Satori");
 
   const img = await satori(
-    <Dashboard />,
+    <Dashboard weatherData={weatherData} />,
     {
       width: 800,
       height: 480,
@@ -29,7 +34,8 @@ export async function generateImage() {
   if(process.env.ENVIROMENT === "DEV") {
         console.log("Writing SVG to output.svg");
         await Bun.write("output.svg", img)
-        return;
+        console.log("Finshed");
+        process.exit(0);
     }
 
 
