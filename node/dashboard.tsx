@@ -6,20 +6,18 @@ interface DashboardProps {
 }
 
 const Dashboard: React.FC<DashboardProps> = ({ weatherData }) => {
+	const formattedWeather = (weather: WeatherHourlyData) => {
+		return (
+			<div tw="flex flex-col mr-8">
+				<div tw="flex mb-4 text-4xl">{weather.temperature.toFixed(1)}°C</div>
+				<div tw="flex text-3xl">{weather.hour}:00</div>
+			</div>
+		);
+	};
+
 	return (
-		<div
-			style={{
-				backgroundColor: "white",
-				display: "flex",
-				height: "100%",
-				width: "100%",
-				justifyContent: "center",
-				alignItems: "center",
-			}}
-		>
-			<div
-				style={{ color: "black", display: "flex" }}
-			>{`hello, world!! ${weatherData.map((data) => `(${data.hour} - ${data.temperature.toFixed(1)})`).join(", ")}`}</div>
+		<div tw="flex h-full w-full items-center justify-center bg-white">
+			{weatherData.map((weather, index) => formattedWeather(weather))}
 		</div>
 	);
 };
