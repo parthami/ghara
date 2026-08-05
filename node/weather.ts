@@ -51,9 +51,9 @@ export const getWeather = async () => {
 
 	const hours = [
 		currentHour,
-		(currentHour + 2) % 24,
 		(currentHour + 4) % 24,
 		(currentHour + 6) % 24,
+		(currentHour + 8) % 24,
 	];
 
 	const weatherDataByHour: WeatherHourlyData[] = hours.map((hour) => ({
