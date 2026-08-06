@@ -16,7 +16,7 @@ const Dashboard: React.FC<DashboardProps> = ({ weatherData }) => {
 				key={weather.hour}
 			>
 				{!current && <div tw="flex text-3xl">{weather.hour}</div>}
-				<div tw={`flex ${current ? "mb-8" : "my-8"}`}>(icon)</div>
+				<div tw={`flex ${current ? "mb-8" : "my-8"}`}>-</div>
 				<div tw="flex text-4xl font-bold">
 					{Math.round(weather.temperature)}°
 				</div>
@@ -27,7 +27,7 @@ const Dashboard: React.FC<DashboardProps> = ({ weatherData }) => {
 	return (
 		<div tw="flex h-full w-full items-center justify-center bg-white">
 			<div tw="flex w-5/6 items-center justify-center bg-gray-300 p-16 rounded-32">
-				<CloverSvg>{formattedWeather(currentWeather, true)}</CloverSvg>
+				<div tw="flex bg-[#808080] items-center justify-center px-6 py-8 rounded-32">{formattedWeather(currentWeather, true)}</div>
 				{forecast.map((weather) => formattedWeather(weather))}
 			</div>
 		</div>
